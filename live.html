@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nova Academy | Live Batches</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f9ff;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background-color: #043865;
+      padding: 1rem 2rem;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 1rem;
+      font-weight: 500;
+    }
+
+    main {
+      padding: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #043865;
+      animation: fadeInDown 1s ease-in-out;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .stat-box {
+      background: #fff;
+      border-left: 6px solid #0077cc;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 1rem 2rem;
+      text-align: center;
+      min-width: 150px;
+      animation: slideUp 1s ease-in-out;
+    }
+
+    .stat-box h2 {
+      font-size: 2rem;
+      color: #0077cc;
+    }
+
+    .stat-box p {
+      margin-top: 5px;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    .batch-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .batch-card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      transition: transform 0.4s ease, opacity 0.5s ease;
+      border-top: 4px solid #0077cc;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 1s forwards;
+    }
+
+    .course-name {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #0077cc;
+      margin-bottom: 0.5rem;
+    }
+
+    .details {
+      font-size: 0.95rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .join-btn {
+      margin-top: 1rem;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 5px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .join-btn:hover {
+      background-color: #005fa3;
+    }
+
+    footer {
+      background-color: #043865;
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(50px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideUp {
+      0% { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav {
+        margin-top: 0.5rem;
+      }
+      .stats {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+    <div class="topbar">
+    <button onclick="history.back()"><a href="index.html">← Back</button>
+    <h2>Nova Academy - Settings</h2>
+  </div>
+
+  <header>
+    <div class="logo">Nova Academy</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Live Batches</a>
+      <a href="#">Paid Batches</a>
+      <a href="#">Ed Shop</a>
+      <a href="#">Login</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <h1>Live Batches for All Courses</h1>
+
+    <!-- Animated Counters -->
+    <div class="stats">
+      <div class="stat-box">
+        <h2 id="courses">0</h2>
+        <p>Courses</p>
+      </div>
+      <div class="stat-box">
+        <h2 id="students">0</h2>
+        <p>Students Enrolled</p>
+      </div>
+      <div class="stat-box">
+        <h2 id="mentors">0</h2>
+        <p>Expert Mentors</p>
+      </div>
+    </div>
+
+    <div class="batch-container">
+
+      <div class="batch-card">
+        <div>
+          <div class="course-name">JEE Main 2025</div>
+          <div class="details">Start Date: 10th July 2025</div>
+          <div class="details">Time: 5 PM - 7 PM</div>
+          <div class="details">Mentor: Mr. Rakesh Verma</div>
+        </div>
+        <button class="join-btn">Join Now</button>
+      </div>
+
+      <div class="batch-card">
+        <div>
+          <div class="course-name">NEET Crash Course</div>
+          <div class="details">Start Date: 12th July 2025</div>
+          <div class="details">Time: 2 PM - 4 PM</div>
+          <div class="details">Mentor: Dr. Priya Sharma</div>
+        </div>
+        <button class="join-btn">Join Now</button>
+      </div>
+
+      <div class="batch-card">
+        <div>
+          <div class="course-name">UPSC GS Foundation</div>
+          <div class="details">Start Date: 15th July 2025</div>
+          <div class="details">Time: 6 PM - 8 PM</div>
+          <div class="details">Mentor: Ankit Mehra (Ex-IAS)</div>
+        </div>
+        <button class="join-btn">Join Now</button>
+      </div>
+
+      <div class="batch-card">
+        <div>
+          <div class="course-name">NDA Maths + GS</div>
+          <div class="details">Start Date: 9th July 2025</div>
+          <div class="details">Time: 9 AM - 11 AM</div>
+          <div class="details">Mentor: Major Vikas Rana</div>
+        </div>
+        <button class="join-btn">Join Now</button>
+      </div>
+
+      <div class="batch-card">
+        <div>
+          <div class="course-name">CUET Commerce Stream</div>
+          <div class="details">Start Date: 11th July 2025</div>
+          <div class="details">Time: 3 PM - 5 PM</div>
+          <div class="details">Mentor: C.A. Richa Bansal</div>
+        </div>
+        <button class="join-btn">Join Now</button>
+      </div>
+
+      <div class="batch-card">
+        <div>
+          <div class="course-name">GATE Electrical 2026</div>
+          <div class="details">Start Date: 20th July 2025</div>
+          <div class="details">Time: 7 PM - 9 PM</div>
+          <div class="details">Mentor: Prof. Nitin Gupta</div>
+        </div>
+        <button class="join-btn">Join Now</button>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Nova Academy | Empowering Future Minds
+  </footer>
+
+  <!-- Counter Script -->
+  <script>
+    const animateCounter = (id, target) => {
+      let count = 0;
+      const speed = 20;
+      const update = () => {
+        if (count < target) {
+          count += Math.ceil(target / 100);
+          if (count > target) count = target;
+          document.getElementById(id).innerText = count;
+          setTimeout(update, speed);
+        }
+      };
+      update();
+    };
+
+    window.onload = () => {
+      animateCounter('courses', 12);
+      animateCounter('students', 5000);
+      animateCounter('mentors', 25);
+    };
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nova Academy - Free Batches</title>
+  <style>
+    :root {
+      --main-color: #4e54c8;
+      --secondary-color: #8f94fb;
+      --bg-color: #f4f7ff;
+      --text-color: #333;
+      --menu-bg: white;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    header {
+      background: linear-gradient(to right, var(--main-color), var(--secondary-color));
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    nav {
+      position: relative;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ffd;
+    }
+
+    .menu-toggle {
+      display: none;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: white;
+      border-radius: 2px;
+    }
+
+    main {
+      padding: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--main-color);
+    }
+
+    .batch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .batch-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      padding: 1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeIn 0.8s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .batch-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .batch-card img {
+      width: 100%;
+      max-height: 140px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 0.5rem;
+    }
+
+    .batch-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--main-color);
+      margin-bottom: 0.3rem;
+      text-align: center;
+    }
+
+    .batch-desc {
+      font-size: 0.85rem;
+      color: #555;
+      text-align: center;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: var(--menu-bg);
+        padding: 1rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        z-index: 999;
+      }
+
+      .menu-toggle:checked + .hamburger + .nav-links {
+        display: flex;
+      }
+
+      .nav-links a {
+        color: var(--text-color);
+        padding: 0.5rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+    <div class="topbar">
+    <button onclick="history.back()"><a href="index.html">← Back</button>
+    <h2>Nova Academy - Settings</h2>
+  </div>
+
+  <header>
+    <div class="logo">Nova Academy</div>
+    <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+    <label for="menu-toggle" class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+    <nav>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="#">Login / Signup</a>
+        <a href="#">Settings</a>
+        <a href="#">Ed Shop</a>
+        <a href="#">Live Batches</a>
+        <a href="#">Paid Batches</a>
+        <a href="#">Free Batches</a>
+        <a href="#">About Us</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <h1>100 Free Batches</h1>
+    <div class="batch-grid" id="batchGrid">
+      <!-- Batches will be added by JavaScript -->
+    </div>
+  </main>
+
+  <script>
+    const grid = document.getElementById('batchGrid');
+    const courses = ["JEE", "NEET", "GATE", "UPSC", "NDA", "CUET", "SSC", "Banking"];
+    for (let i = 1; i <= 100; i++) {
+      const course = courses[i % courses.length];
+      const card = document.createElement('div');
+      card.className = 'batch-card';
+      card.innerHTML = `
+        <img src="https://imgs.search.brave.com/pWLXuYAl_C677DNmB-8adjPGL4gjlr27OjRsSX1LQ_0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hcHB4/LWNvbnRlbnQtdjIu/Y2xhc3N4LmNvLmlu/L3BhaWRfY291cnNl/My8yMDI1LTA1LTE3/LTAuMDc4ODUxMjA4/MTYwMTc4OTkucG5n" alt="Batch Image">
+        <div class="batch-title">Free Batch #${i}</div>
+        <div class="batch-desc">Course: ${course} | Duration: 30 Days</div>
+      `;
+      grid.appendChild(card);
+    }
+  </script>
+</body>
+</html>

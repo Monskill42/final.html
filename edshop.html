@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nova Academy - Ed Shop</title>
+  <style>
+    :root {
+      --main-color: #4e54c8;
+      --secondary-color: #8f94fb;
+      --bg-color: #f4f6fc;
+      --text-color: #333;
+      --card-bg: #fff;
+      --btn-color: #4e54c8;
+      --btn-hover: #3a3fab;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    header {
+      background: linear-gradient(to right, var(--main-color), var(--secondary-color));
+      padding: 1.5rem;
+      text-align: center;
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+
+    .product-card {
+      background: var(--card-bg);
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-card img {
+      max-width: 100%;
+      height: 140px;
+      object-fit: contain;
+      margin-bottom: 1rem;
+    }
+
+    .product-name {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .btn-container {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 0.5rem;
+    }
+
+    .btn {
+      background-color: var(--btn-color);
+      color: white;
+      border: none;
+      padding: 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: var(--btn-hover);
+    }
+
+    footer {
+      text-align: center;
+      background: #ddd;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+    <div class="topbar">
+    <button onclick="history.back()"><a href="index.html">← Back</button>
+    <h2>Nova Academy - Settings</h2>
+  </div>
+  <header>Nova Academy Ed Shop</header>
+  <div class="product-grid">
+
+    <!-- Product Cards -->
+    <div class="product-card">
+      <img src="https://imgs.search.brave.com/is-QGtfxem1s_fbnOlmXX_KH7SDA1PO0Yg_YrPDO_G0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/ODExbjBoV3hvOUwu/anBn">
+      <div class="product-name">Study Chair</div>
+      <div class="btn-container">
+        <button class="btn" onclick="addToCart('Study Chair')">Add to Cart</button>
+        <button class="btn" onclick="buyNow('Study Chair')">Buy Now</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="https://imgs.search.brave.com/K51_4XEYqvrTmQ7i0jIqevwU-nfZj0Uyf13kn215pEM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy9h/L2FiL0xhbXlfMjAw/MF9mb3VudGFpbl9w/ZW4sX0VGX3NlbWlf/aG9vZGVkX25pYi5q/cGc">
+      <div class="product-name">Fountain Pen</div>
+      <div class="btn-container">
+        <button class="btn" onclick="addToCart('Fountain Pen')">Add to Cart</button>
+        <button class="btn" onclick="buyNow('Fountain Pen')">Buy Now</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="https://imgs.search.brave.com/4DIYL--IMZhNnLg2ZDyvtiEwJ5ZHcMDgzjFzCwe3jzU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9lcmdv/a2lkLmNvbS9jZG4v/c2hvcC9wcm9kdWN0/cy9lcmdvYmFnLXBh/Y2stc2Nob29sLWJh/Zy02LXBpZWNlLXNl/dC1zdXBlcnJlZmxl/a3RiZWFyLWdsb3ct/ZWRpdGlvbi01MDYx/OTFfMjAwMHguanBn/P3Y9MTYwNzg3MTEy/MA">
+      <div class="product-name">ErgoBack Bag</div>
+      <div class="btn-container">
+        <button class="btn" onclick="addToCart('ErgoBack Bag')">Add to Cart</button>
+        <button class="btn" onclick="buyNow('ErgoBack Bag')">Buy Now</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="https://imgs.search.brave.com/elO9zc1as-TxzRdxYF3lkWq-DQePiajCRYrW4zAAL-E/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/b3B0aWstcHJvLmRl/L1Byb2R1a3RiaWxk/ZXIvbm9ybWFsLzc5/ODc2XzExL0V1cm9t/ZXgtS2FtZXJhLUVQ/LTUwMDAtV2lGaS0z/LUVkdVBhZC1XaWZp/LWNvbG9yLUNNT1Mt/MS0yLTUtMi0yLW1t/LTUtTVAtV2lmaS04/LVpvbGwtVGFibGV0/LmpwZw">
+      <div class="product-name">EduPad X10</div>
+      <div class="btn-container">
+        <button class="btn" onclick="addToCart('EduPad X10')">Add to Cart</button>
+        <button class="btn" onclick="buyNow('EduPad X10')">Buy Now</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="https://imgs.search.brave.com/RCkgHMpbgyl34yQEfBegW7BZReMVPvqjzcZQC1PTQGg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9ydWtt/aW5pbTIuZmxpeGNh/cnQuY29tL2ltYWdl/LzYxMi82MTIvazBp/Z2lhODAvY2FsY3Vs/YXRvci96L2IvbS9j/ZWxlY3QtY2UtOTkx/bXMtY2UtOTkxbXMt/b3JpZ2luYWwtaW1h/Zms5eHl6YXh1eWpk/ZC5qcGVnP3E9NzA">
+      <div class="product-name">Scientific Calculator</div>
+      <div class="btn-container">
+        <button class="btn" onclick="addToCart('Scientific Calculator')">Add to Cart</button>
+        <button class="btn" onclick="buyNow('Scientific Calculator')">Buy Now</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="https://imgs.search.brave.com/2YKkBvJD_or3wdQaopKPYXIS57afyUqrl6RN9ofh9XM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/c2hvcGlmeS5jb20v/cy9maWxlcy8xLzA2/NjEvMTYwMy9wcm9k/dWN0cy9SdWdnZWRT/QUwxNDcwLUEtUkdG/cm9udF9hZmFlMjg4/OC1jY2Y4LTQyN2Qt/ODQxMy0xODU0NGQx/MmE2ODhfMTAyNHgx/MDI0LnBuZz92PTE1/OTE4MTc0NjU">
+      <div class="product-name">EduBook Slim</div>
+      <div class="btn-container">
+        <button class="btn" onclick="addToCart('EduBook Slim')">Add to Cart</button>
+        <button class="btn" onclick="buyNow('EduBook Slim')">Buy Now</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="https://imgs.search.brave.com/hsW8uI1eLEZCYj3pQbH75h5GvWy6ttzG9twSI0bUzqI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NjFoWVc3RWRRNkwu/anBn">
+      <div class="product-name">Foldable Desk</div>
+      <div class="btn-container">
+        <button class="btn" onclick="addToCart('Foldable Desk')">Add to Cart</button>
+        <button class="btn" onclick="buyNow('Foldable Desk')">Buy Now</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="https://imgs.search.brave.com/JwWrqzHPbOhetBcXAOwWQsIwXivh1mU74zMZir0TLR4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/anNtYnJhbmRleC5j/b20vd3AtY29udGVu/dC91cGxvYWRzLzIw/MjEvMDMvMTA2NDU5/MDBfRDIuanBn">
+      <div class="product-name">AlphaEdu Notebook</div>
+      <div class="btn-container">
+        <button class="btn" onclick="addToCart('AlphaEdu Notebook')">Add to Cart</button>
+        <button class="btn" onclick="buyNow('AlphaEdu Notebook')">Buy Now</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="https://imgs.search.brave.com/h-bSpAb8bKrqjNRHtGgIRyILaK_ONKTh166FM1ohnfo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMtZXUuc3NsLWlt/YWdlcy1hbWF6b24u/Y29tL2ltYWdlcy9J/LzgxUzB4dHQwdUlM/Ll9BQ19VTDE2MF9T/UjE2MCwxNjBfLmpw/Zw">
+      <div class="product-name">EduTrek Bag</div>
+      <div class="btn-container">
+        <button class="btn" onclick="addToCart('EduTrek Bag')">Add to Cart</button>
+        <button class="btn" onclick="buyNow('EduTrek Bag')">Buy Now</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="https://imgs.search.brave.com/WAAWjonP1vdFLiT6n8aTE9NM20Mqh1alVYYzeNS-LtI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBj/bWFnLmNvbS9pbWFn/ZXJ5L3Jldmlld3Mv/MDJPNUxFQ2JvaVJV/NnFkWkwwOHpHUGot/Ni5maXRfc2NhbGUu/c2l6ZV80MDB4MjI1/LnYxNjk0MDEzMjkz/LmpwZw">
+      <div class="product-name">LearnTab Mini</div>
+      <div class="btn-container">
+        <button class="btn" onclick="addToCart('LearnTab Mini')">Add to Cart</button>
+        <button class="btn" onclick="buyNow('LearnTab Mini')">Buy Now</button>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    © 2025 Nova Academy Ed Shop. All rights reserved.
+  </footer>
+
+  <script>
+    function addToCart(item) {
+      alert(item + " added to cart!");
+    }
+
+    function buyNow(item) {
+      alert("Proceeding to buy: " + item);
+    }
+  </script>
+</body>
+</html>
